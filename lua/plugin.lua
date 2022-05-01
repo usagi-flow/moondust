@@ -1,37 +1,47 @@
--- Install packer:
--- cd ~/.config/nvim && mkdir -p pack/packer/start && cd pack/packer/start
--- git clone https://github.com/wbthomason/packer.nvim.git
+-- This file defines the plugins to be used, and, when a plugin is loaded,
+-- calls the configuration file `lua/plugin/<plugin-name>.lua`.
 
--- This file can be loaded by calling `lua require('plugin')` from your init.vim
-
--- Only required if you have packer configured as `opt`
---vim.cmd [[packadd packer.nvim]]
--- Only if your version of Neovim doesn't have https://github.com/neovim/neovim/pull/12632 merged
---vim._update_package_paths()
+-- To initially install and clean packages without starting a (possibly unconfigured) nvim instance:
+-- nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
 
 --print("- loading packer")
 local packer = require("packer").startup(function(use)
 	-- Packer
 	use "wbthomason/packer.nvim"
 
+	-- TODO: investigate lewis6991/impatient.nvim
+
 	-- Colorscheme
 	use "romgrk/doom-one.vim"
 
 	use {
 		"AckslD/nvim-whichkey-setup.lua",
-		requires = {"liuchengxu/vim-which-key"}
+		requires = {"liuchengxu/vim-which-key"},
+		config = function()
+			require("plugin.whichkey")
+		end
 	}
 
 	use {
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		config = function()
+			require("plugin.lualine")
+		end
 	}
 
 	use {
 		'kyazdani42/nvim-tree.lua',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		--cmd = { "NvimTreeToggle", "NvimTreeOpen" },
+		config = function()
+			-- TODO: NvimTree has issues with this
+			--require("plugin.nvimtree")
+			--require("nvim-tree").on_enter() -- Required when lazy loading NvimTree
+		end
 	}
 
+-- TODO: alpha (dashboard) doesn't work well
 --	use {
 --		'goolord/alpha-nvim',
 --		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -39,12 +49,12 @@ local packer = require("packer").startup(function(use)
 --			require("plugin.alpha")
 --		end
 --	}
-
-
 end)
 
-require("plugin.whichkey")
-require("plugin.lualine")
+-- TODO: seems like NvimTree doesn't like being loaded from the config callback
+--if packer.packer_plugins["nvim-tree.lua"] and packer.packer_plugins["nvim-tree.lua"].loaded then
+--	require("plugin.nvimtree")
+--end
 require("plugin.nvimtree")
 
 return packer
