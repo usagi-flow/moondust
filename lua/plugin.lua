@@ -41,6 +41,11 @@ local packer = require("packer").startup(function(use)
 		end
 	}
 
+	-- TODO:
+	-- nvim-lspconfig
+	-- nvim-lsp-installer
+	-- cmp-nvim-lsp
+
 -- TODO: alpha (dashboard) doesn't work well
 --	use {
 --		'goolord/alpha-nvim',
