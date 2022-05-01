@@ -1,6 +1,10 @@
 # Compiled packer sources
 /plugin
 
+# Log and temporary files
+*.log
+*.tmp
+
 # Following definitions taken from: https://github.com/github/gitignore/raw/main/Lua.gitignore
 
 # Compiled Lua sources
