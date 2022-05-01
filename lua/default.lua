@@ -1,3 +1,27 @@
+--: Theming {{{
+
+--vim.o.fillchars = "eob: ,vert:│"
+vim.o.fillchars = "eob: "
+
+vim.o.termguicolors = true
+
+-- TODO: these require plugins (run after Packer?)
+vim.cmd("colorscheme doom-one")
+
+-- Way too slow
+--vim.cmd("colorscheme tokyonight")
+--vim.cmd("colorscheme lunar")
+
+-- Only the separator background is visible
+--vim.g.spacegray_low_contrast = true
+--vim.cmd("colorscheme spacegray")
+--vim.cmd("colorscheme iceberg")
+
+-- No visible separator at all
+--vim.cmd("colorscheme tender")
+
+--: }}}
+
 --[[
 " Own defaults
 "set smartindent
@@ -38,11 +62,3 @@ vim.o.mouse = "a"
 
 -- Attempt to use the system clipboard when yanking
 vim.o.clipboard = "unnamedplus"
-
-vim.o.termguicolors = true
-
--- TODO: these require plugins (run after Packer?)
---vim.cmd("colorscheme lunar")
---vim.cmd("colorscheme spacegray")
---vim.cmd("colorscheme tokyonight")
-vim.cmd("colorscheme iceberg")

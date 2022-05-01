@@ -14,7 +14,8 @@ local packer = require("packer").startup(function(use)
 	-- Packer
 	use "wbthomason/packer.nvim"
 
-	use "cocopon/iceberg.vim"
+	-- Colorscheme
+	use "romgrk/doom-one.vim"
 
 	use {
 		"AckslD/nvim-whichkey-setup.lua",
