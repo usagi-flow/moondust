@@ -39,6 +39,8 @@ vim.o.mouse = "a"
 -- Attempt to use the system clipboard when yanking
 vim.o.clipboard = "unnamedplus"
 
+vim.o.termguicolors = true
+
 -- TODO: these require plugins (run after Packer?)
 --vim.cmd("colorscheme lunar")
 --vim.cmd("colorscheme spacegray")
