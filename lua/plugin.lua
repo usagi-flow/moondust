@@ -15,21 +15,13 @@ local packer = require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 	--use "folke/which-key.nvim"
 
-	--[[use {
-		"folke/which-key.nvim",
-		config = function()
-			--print("- Setting up whichkey")
-			require("whichkey")
-			--print("- whichkey set up")
-		end
-	}]]--
-
 	use {
 		"AckslD/nvim-whichkey-setup.lua",
 		requires = {"liuchengxu/vim-which-key"}
 	}
 
-	use "folke/tokyonight.nvim"
+	--use "folke/tokyonight.nvim"
+	use "cocopon/iceberg.vim"
 end)
 
 require("whichkey")

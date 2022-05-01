@@ -42,4 +42,5 @@ vim.o.clipboard = "unnamedplus"
 -- TODO: these require plugins (run after Packer?)
 --vim.cmd("colorscheme lunar")
 --vim.cmd("colorscheme spacegray")
-vim.cmd("colorscheme tokyonight")
+--vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme iceberg")
