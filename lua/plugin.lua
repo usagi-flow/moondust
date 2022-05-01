@@ -13,17 +13,21 @@
 local packer = require("packer").startup(function(use)
 	-- Packer
 	use "wbthomason/packer.nvim"
-	--use "folke/which-key.nvim"
+
+	use "cocopon/iceberg.vim"
 
 	use {
 		"AckslD/nvim-whichkey-setup.lua",
 		requires = {"liuchengxu/vim-which-key"}
 	}
 
-	--use "folke/tokyonight.nvim"
-	use "cocopon/iceberg.vim"
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
 end)
 
-require("whichkey")
+require("plugin.whichkey")
+require("plugin.lualine")
 
 return packer

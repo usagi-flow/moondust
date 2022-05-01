@@ -134,5 +134,3 @@ local keymap = {
 }
 
 wk.register_keymap('leader', keymap)
-
-print("Set up wk")
