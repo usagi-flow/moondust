@@ -20,6 +20,22 @@ vim.cmd("colorscheme doom-one")
 -- No visible separator at all
 --vim.cmd("colorscheme tender")
 
+-- GUI-specific
+vim.o.guifont = "SauceCodePro Nerd Font Mono:h10" -- <font>:h<size>
+
+-- win-specific
+if vim.api.nvim_call_function("has", {"win32"}) == 1 then
+	vim.o.shell = "zsh.exe"
+	vim.o.shellcmdflag = "-c"
+	vim.o.shellpipe = "2>&1 | tee"
+	vim.o.shellxquote = ""
+	vim.o.guifont = "SauceCodePro Nerd Font:h12" -- <font>:h<size>
+end
+
+-- GUI-specific (Neovide)
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_remember_window_size = false
+
 --: }}}
 
 --[[
