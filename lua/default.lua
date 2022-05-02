@@ -78,3 +78,6 @@ vim.o.mouse = "a"
 
 -- Attempt to use the system clipboard when yanking
 vim.o.clipboard = "unnamedplus"
+
+-- Highlight yanked text (:h lua-highlight)
+vim.cmd("au TextYankPost * silent! lua vim.highlight.on_yank()")
