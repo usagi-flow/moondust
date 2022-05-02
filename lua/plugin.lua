@@ -15,6 +15,19 @@ local packer = require("packer").startup(function(use)
 	use "romgrk/doom-one.vim"
 
 	use {
+		'kyazdani42/nvim-tree.lua',
+		requires = { 'kyazdani42/nvim-web-devicons' },
+		--requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		--cmd = { "NvimTreeToggle", "NvimTreeOpen" },
+		config = function()
+			-- TODO: NvimTree has issues with this
+			require("plugin.nvimtree")
+			--require'nvim-tree'.setup {}
+			--require("nvim-tree").on_enter() -- Required when lazy loading NvimTree
+		end
+	}
+
+	use {
 		"AckslD/nvim-whichkey-setup.lua",
 		requires = {"liuchengxu/vim-which-key"},
 		config = function()
@@ -27,17 +40,6 @@ local packer = require("packer").startup(function(use)
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		config = function()
 			require("plugin.lualine")
-		end
-	}
-
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-		--cmd = { "NvimTreeToggle", "NvimTreeOpen" },
-		config = function()
-			-- TODO: NvimTree has issues with this
-			--require("plugin.nvimtree")
-			--require("nvim-tree").on_enter() -- Required when lazy loading NvimTree
 		end
 	}
 
@@ -60,6 +62,6 @@ end)
 --if packer.packer_plugins["nvim-tree.lua"] and packer.packer_plugins["nvim-tree.lua"].loaded then
 --	require("plugin.nvimtree")
 --end
-require("plugin.nvimtree")
+--require("plugin.nvimtree")
 
 return packer

@@ -1,3 +1,4 @@
+
 --: Theming {{{
 
 --vim.o.fillchars = "eob: ,vert:│"
@@ -38,29 +39,16 @@ vim.g.neovide_remember_window_size = false
 
 --: }}}
 
---[[
-" Own defaults
-"set smartindent
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
-]]
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.ignorecase = true
 
--- TODO: use vim.o/vim.bo/vim.wo once Neovim 0.5 is released
--- E.g.
--- vim.o.hlsearch = true
+vim.o.smartindent = true
+vim.o.expandtab = false
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
-vim.cmd = vim.api.nvim_command
-
-vim.cmd("set hlsearch")
-vim.cmd("set incsearch")
-vim.cmd("set ignorecase")
-
-vim.cmd("set smartindent")
-vim.cmd("set noexpandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set shiftwidth=4")
-
+-- Hybrid numbers (relative + active line number)
 vim.o.nu = true
 vim.o.rnu = true
 
@@ -80,4 +68,4 @@ vim.o.mouse = "a"
 vim.o.clipboard = "unnamedplus"
 
 -- Highlight yanked text (:h lua-highlight)
-vim.cmd("au TextYankPost * silent! lua vim.highlight.on_yank()")
+vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank()")
