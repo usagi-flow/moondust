@@ -1,13 +1,6 @@
 vim.o.timeout = true
 vim.o.timeoutlen = 250
 
-vim.api.nvim_set_var("mapleader", " ") -- Can't use <space> here
-vim.api.nvim_set_var("maplocalleader", ",")
-
--- nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-vim.api.nvim_set_keymap("n", "m", ":WhichKey '<Space>'<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>", ":WhichKey '<Space>'<CR>", { silent = true })
-
 vim.g.which_key_use_floating_win = true
 vim.g.which_key_disable_default_offset = true
 vim.g.which_key_floating_opts = {

@@ -22,7 +22,7 @@ vim.cmd("colorscheme doom-one")
 --vim.cmd("colorscheme tender")
 
 -- GUI-specific
-vim.o.guifont = "SauceCodePro Nerd Font Mono:h10" -- <font>:h<size>
+vim.o.guifont = "SauceCodePro Nerd Font Mono:h11" -- <font>:h<size>
 
 -- win-specific
 if vim.api.nvim_call_function("has", {"win32"}) == 1 then

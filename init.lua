@@ -1,8 +1,8 @@
 local path = vim.fn.stdpath("config")
 
 -- Allow modules to be loaded as packages
-package.path = package.path .. ";" .. path .. "/modules/?/init.lua"
-package.path = package.path .. ";" .. path .. "/modules/?/lua/?.lua"
+--package.path = package.path .. ";" .. path .. "/modules/?/init.lua"
+--package.path = package.path .. ";" .. path .. "/modules/?/lua/?.lua"
 
 -- Allow loading packages from packer/lua
 package.path = package.path .. ";" .. path .. "/modules/packer/lua/?.lua"
@@ -12,12 +12,7 @@ package.path = package.path .. ";" .. path .. "/modules/packer/lua/?/init.lua"
 local rtp = vim.api.nvim_get_option("rtp")
 vim.api.nvim_set_option("rtp", path .. "," .. rtp)
 
--- Plugin/package management requires Neovim >= 0.5 at least
---print("loading: plugin")
+require("keymap")
 require("plugin")
-
---print("loading: default")
 require("default")
-
---print("loading: config")
 require("config")
