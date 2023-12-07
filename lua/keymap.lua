@@ -8,6 +8,10 @@ if not _G.incompatible_client then
 	map("n", "<leader>", ":WhichKey '<Space>'<CR>", { silent = true })
 end
 
+-- Indent with a single key press only
+map("n", ">", ">>", opts)
+map("n", "<", "<<", opts)
+
 -- Stay in visual mode when indenting
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
