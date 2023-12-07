@@ -14,18 +14,19 @@ local packer = require("packer").startup(function(use)
 	-- Colorscheme
 	use "romgrk/doom-one.vim"
 
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = { 'kyazdani42/nvim-web-devicons' },
-		--requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-		--cmd = { "NvimTreeToggle", "NvimTreeOpen" },
-		config = function()
-			-- TODO: NvimTree has issues with this
-			require("plugin.nvimtree")
-			--require'nvim-tree'.setup {}
-			--require("nvim-tree").on_enter() -- Required when lazy loading NvimTree
-		end
-	}
+	-- TODO: latest version is unstable
+	--use {
+	--	'kyazdani42/nvim-tree.lua',
+	--	requires = { 'kyazdani42/nvim-web-devicons' },
+	--	--requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+	--	--cmd = { "NvimTreeToggle", "NvimTreeOpen" },
+	--	config = function()
+	--		-- TODO: NvimTree has issues with this
+	--		require("plugin.nvimtree")
+	--		--require'nvim-tree'.setup {}
+	--		--require("nvim-tree").on_enter() -- Required when lazy loading NvimTree
+	--	end
+	--}
 
 	use {
 		"AckslD/nvim-whichkey-setup.lua",
