@@ -69,3 +69,6 @@ vim.o.clipboard = "unnamedplus"
 
 -- Highlight yanked text (:h lua-highlight)
 vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank()")
+
+-- Don't add an extra newline at the end of files
+vim.cmd("set nofixendofline")
