@@ -9,3 +9,12 @@ map("n", "<leader>", ":WhichKey '<Space>'<CR>", { silent = true })
 -- Stay in visual mode when indenting
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
+
+map("n", "ge", "G$", opts)
+map("v", "ge", "G$", opts)
+
+map("n", "gh", "0", opts)
+map("v", "gh", "0", opts)
+
+map("n", "gl", "$", opts)
+map("v", "gl", "$", opts)
