@@ -43,6 +43,11 @@ local packer = require("packer").startup(function(use)
 		end
 	}
 
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.5',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
+
 	-- TODO:
 	-- nvim-lspconfig
 	-- nvim-lsp-installer
