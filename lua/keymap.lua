@@ -4,7 +4,9 @@ local map = vim.api.nvim_set_keymap
 vim.api.nvim_set_var("mapleader", " ") -- Can't use <space> here
 vim.api.nvim_set_var("maplocalleader", ",")
 
-map("n", "<leader>", ":WhichKey '<Space>'<CR>", { silent = true })
+if not _G.incompatible_client then
+	map("n", "<leader>", ":WhichKey '<Space>'<CR>", { silent = true })
+end
 
 -- Stay in visual mode when indenting
 map("v", "<", "<gv", opts)
