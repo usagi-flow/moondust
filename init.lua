@@ -16,3 +16,9 @@ require("keymap")
 require("plugin")
 require("default")
 require("config")
+
+-- Include lua/gui.lua if it exists
+local file = path .. "/lua/gui.lua"
+if vim.fn.filereadable(file) == 1 then
+	require("gui")
+end
