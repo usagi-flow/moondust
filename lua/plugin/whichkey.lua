@@ -1,5 +1,5 @@
 vim.o.timeout = true
-vim.o.timeoutlen = 250
+vim.o.timeoutlen = 0
 
 vim.g.which_key_use_floating_win = true
 vim.g.which_key_disable_default_offset = true
