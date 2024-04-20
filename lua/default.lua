@@ -10,8 +10,11 @@ vim.o.termguicolors = true
 require("catppuccin").setup({
 	transparent_background = true
 })
-vim.cmd("colorscheme catppuccin-macchiato")
---vim.cmd("colorscheme catppuccin-latte")
+if os.getenv("COLOR_SCHEME") == "2" then
+	vim.cmd("colorscheme catppuccin-latte")
+else
+	vim.cmd("colorscheme catppuccin-macchiato")
+end
 
 -- Way too slow
 --vim.cmd("colorscheme tokyonight")
