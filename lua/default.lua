@@ -6,8 +6,12 @@ vim.o.fillchars = "eob: "
 
 vim.o.termguicolors = true
 
--- TODO: these require plugins (run after Packer?)
-vim.cmd("colorscheme doom-one")
+--vim.cmd("colorscheme doom-one")
+require("catppuccin").setup({
+	transparent_background = true
+})
+vim.cmd("colorscheme catppuccin-macchiato")
+--vim.cmd("colorscheme catppuccin-latte")
 
 -- Way too slow
 --vim.cmd("colorscheme tokyonight")

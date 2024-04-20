@@ -4,7 +4,7 @@
 -- To initially install and clean packages without starting a (possibly unconfigured) nvim instance:
 -- nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
 
---print("- loading packer")
+-- TODO: packer is no longer maintained, consider lazy.nvim
 local packer = require("packer").startup(function(use)
 	-- Packer
 	use "wbthomason/packer.nvim"
@@ -12,7 +12,8 @@ local packer = require("packer").startup(function(use)
 	-- TODO: investigate lewis6991/impatient.nvim
 
 	-- Colorscheme
-	use "romgrk/doom-one.vim"
+	--use "romgrk/doom-one.vim"
+	use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- TODO: latest version is unstable
 	--use {
