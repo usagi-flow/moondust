@@ -1,76 +1,86 @@
 -- This file defines the plugins to be used, and, when a plugin is loaded,
 -- calls the configuration file `lua/plugin/<plugin-name>.lua`.
 
--- To initially install and clean packages without starting a (possibly unconfigured) nvim instance:
--- nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=v10.20.3",
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
--- TODO: packer is no longer maintained, consider lazy.nvim
-local packer = require("packer").startup(function(use)
-	-- Packer
-	use "wbthomason/packer.nvim"
+-- TODO: duplicated in default.lua
+function get_color_scheme()
+	if os.getenv("COLOR_SCHEME") == "2" then
+		return "catppuccin-latte"
+	else
+		return "catppuccin-macchiato"
+	end
+end
 
-	-- TODO: investigate lewis6991/impatient.nvim
-
-	-- Colorscheme
-	--use "romgrk/doom-one.vim"
-	use { "catppuccin/nvim", as = "catppuccin" }
-
-	-- TODO: latest version is unstable
-	--use {
-	--	'kyazdani42/nvim-tree.lua',
-	--	requires = { 'kyazdani42/nvim-web-devicons' },
-	--	--requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-	--	--cmd = { "NvimTreeToggle", "NvimTreeOpen" },
-	--	config = function()
-	--		-- TODO: NvimTree has issues with this
-	--		require("plugin.nvimtree")
-	--		--require'nvim-tree'.setup {}
-	--		--require("nvim-tree").on_enter() -- Required when lazy loading NvimTree
-	--	end
-	--}
-
-	use {
-		"AckslD/nvim-whichkey-setup.lua",
-		requires = {"liuchengxu/vim-which-key"},
-		config = function()
-			require("plugin.whichkey")
-		end
+local lazyopts = {
+	install = {
+		colorscheme = { get_color_scheme() }
+	},
+	ui = {
+		border = "single"
 	}
+}
 
-	use {
+require("lazy").setup({
+	-- Colorscheme
+	--"romgrk/doom-one.vim"
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
+	{
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			require("plugin.lualine")
 		end
-	}
+	},
 
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.5',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.6",
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
 
-	use "NoahTheDuke/vim-just"
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function ()
+			require("plugin.which-key")
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+			window = {
+				-- Either set the border but leave a transparent BG,
+				-- or set an opaque BG
+				border = "single",
 
-	-- TODO:
-	-- nvim-lspconfig
-	-- nvim-lsp-installer
-	-- cmp-nvim-lsp
+				-- The BG color is invisible if we use a transparent BG;
+				-- in order to have a visible BG, the "WhichKeyFloat" highlight group should be set.
+				-- If `winblend == 100`, the HL group value doesn't matter.
+				--winblend = 100
+			}
+		}
+	},
 
--- TODO: alpha (dashboard) doesn't work well
---	use {
---		'goolord/alpha-nvim',
---		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
---		config = function ()
---			require("plugin.alpha")
---		end
---	}
-end)
+	-- TODO
+	--[[
+	{
+		"nvim-tree/nvim-tree.lua",
+		tag = "v1.3"
+	},
+	]]--
 
--- TODO: seems like NvimTree doesn't like being loaded from the config callback
---if packer.packer_plugins["nvim-tree.lua"] and packer.packer_plugins["nvim-tree.lua"].loaded then
---	require("plugin.nvimtree")
---end
---require("plugin.nvimtree")
-
-return packer
+	"NoahTheDuke/vim-just"
+}, lazyopts)

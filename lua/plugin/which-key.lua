@@ -1,49 +1,13 @@
 vim.o.timeout = true
 vim.o.timeoutlen = 0
 
-vim.g.which_key_use_floating_win = true
-vim.g.which_key_disable_default_offset = true
-vim.g.which_key_floating_opts = {
-	--["row"] = "+5",
-	["height"] = "+1"
+local wk = require("which-key")
+
+local opts = {
+	prefix = "<leader>"
 }
 
-local wk = require('whichkey_setup')
-
-wk.config {
-	hide_statusline = true,
-	default_keymap_settings = {
-		silent = true,
-		noremap = true,
-	},
-	default_mode = 'n'
-}
-
---[[local keymap = {
-	w = {':w!<CR>', 'save file'}, -- set a single command and text
-	j = 'split args', -- only set a text for an already configured keymap
-	['<CR>'] = {'@q', 'macro q'}, -- setting a special key
-	f = { -- set a nested structure
-		name = '+find',
-		b = {'<Cmd>Telescope buffers<CR>', 'buffers'},
-		h = {'<Cmd>Telescope help_tags<CR>', 'help tags'},
-		c = {
-			name = '+commands',
-			c = {'<Cmd>Telescope commands<CR>', 'commands'},
-			h = {'<Cmd>Telescope command_history<CR>', 'history'},
-		},
-		q = {'<Cmd>Telescope quickfix<CR>', 'quickfix'},
-		g = {
-			name = '+git',
-			g = {'<Cmd>Telescope git_commits<CR>', 'commits'},
-			c = {'<Cmd>Telescope git_bcommits<CR>', 'bcommits'},
-			b = {'<Cmd>Telescope git_branches<CR>', 'branches'},
-			s = {'<Cmd>Telescope git_status<CR>', 'status'},
-		},
-	}
-}]]--
-
-local keymap = {
+local mappings = {
 	["?"] = { "<cmd>Telescope commands<cr>", "Browse commands" },
 	["1"] = { "1<C-w>w", "Window 1" },
 	["2"] = { "2<C-w>w", "Window 2" },
@@ -126,4 +90,7 @@ local keymap = {
 	}
 }
 
-wk.register_keymap('leader', keymap)
+wk.register(mappings, opts)
+
+-- Required only if we want to set an opaque background
+--vim.api.nvim_set_hl(0, "WhichKeyFloat", {fg = "#603000", bg = "#FFC000"})
