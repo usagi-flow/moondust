@@ -1,12 +1,8 @@
 local opts = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
-vim.api.nvim_set_var("mapleader", " ") -- Can't use <space> here
-vim.api.nvim_set_var("maplocalleader", ",")
-
-if not _G.incompatible_client then
-	map("n", "<leader>", ":WhichKey '<Space>'<CR>", { silent = true })
-end
+vim.g.mapleader = " " -- Can't use <space> here
+vim.g.maplocalleader = ","
 
 -- Indent with a single key press only
 map("n", ">", ">>", opts)
