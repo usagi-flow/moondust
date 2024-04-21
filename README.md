@@ -1,6 +1,4 @@
 # moondust
 
--	Clone recursively to `~/.config/nvim`.
--	Start Neovim (it'll display errors, these can be ignored).
--	Run `:PackerSync`.
--	Restart Neovim.
+-	Clone to `~/.config/nvim`.
+-	Start Neovim (first start may take some seconds to clone "lazy" and plugins).
