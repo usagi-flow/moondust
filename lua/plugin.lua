@@ -46,6 +46,13 @@ require("lazy").setup({
 	},
 
 	{
+		"brenton-leighton/multiple-cursors.nvim",
+		tag = "v0.9",
+		opts = {}, -- Implicitly calls setup()
+		keys = require("plugin.multiple-cursors")
+	},
+
+	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
 		dependencies = { 'nvim-lua/plenary.nvim' }
