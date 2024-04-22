@@ -53,7 +53,7 @@ local mappings = {
 		f = { "<cmd>Telescope find_files<cr>", "Find file" },
 		s = { "<cmd>w<cr>", "Save" },
 		S = { "<cmd>wa<cr>", "Save all" },
-		t = { "<cmd>NvimTreeToggle<cr>", "Toggle file tree" }
+		t = { "<cmd>Neotree toggle<cr>", "Toggle file tree" }
 		--t = { "<cmd>lua require'nvim_tree'.toggle_tree()<cr>", "Toggle file tree (*)" }
 	},
 	q = {

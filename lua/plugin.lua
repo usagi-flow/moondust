@@ -88,13 +88,24 @@ require("lazy").setup({
 		}
 	},
 
-	-- TODO
-	--[[
 	{
-		"nvim-tree/nvim-tree.lua",
-		tag = "v1.3"
+		"nvim-neo-tree/neo-tree.nvim",
+		tag = "3.25",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
+		opts = {
+			window = {
+				mappings = {
+					["<space>"] = "none"
+				}
+			}
+		},
+		cmd = "Neotree"
 	},
-	]]--
 
 	{
 		"NoahTheDuke/vim-just",
