@@ -99,5 +99,10 @@ require("lazy").setup({
 	{
 		"NoahTheDuke/vim-just",
 		event = "BufReadPre justfile"
+	},
+
+	{
+		"cyberkov/openhab-vim",
+		event = "BufReadPre *.things,*.items,*.rules,*.sitemap,*.persist"
 	}
 }, lazyopts)
