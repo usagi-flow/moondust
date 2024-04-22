@@ -24,6 +24,9 @@ function get_color_scheme()
 end
 
 local lazyopts = {
+	defaults = {
+		lazy = true
+	},
 	install = {
 		colorscheme = { get_color_scheme() }
 	},
@@ -38,7 +41,8 @@ require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	{
-		'nvim-lualine/lualine.nvim',
+		"nvim-lualine/lualine.nvim",
+		lazy = false,
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			require("plugin.lualine")
@@ -48,6 +52,7 @@ require("lazy").setup({
 	{
 		"brenton-leighton/multiple-cursors.nvim",
 		tag = "v0.9",
+		event = "VeryLazy",
 		opts = {}, -- Implicitly calls setup()
 		keys = require("plugin.multiple-cursors")
 	},
@@ -55,11 +60,13 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
+		event = "VeryLazy",
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
 
 	{
 		"folke/which-key.nvim",
+		tag = "v1.6.0",
 		event = "VeryLazy",
 		init = function ()
 			require("plugin.which-key")
@@ -89,5 +96,8 @@ require("lazy").setup({
 	},
 	]]--
 
-	"NoahTheDuke/vim-just"
+	{
+		"NoahTheDuke/vim-just",
+		event = "BufReadPre justfile"
+	}
 }, lazyopts)
