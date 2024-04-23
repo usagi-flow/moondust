@@ -22,6 +22,7 @@ local mappings = {
 	["<down>"] = { "<C-w><down>", "Window bottom" },
 	["<left>"] = { "<C-w><left>", "Window left" },
 	["<right>"] = { "<C-w><right>", "Window right" },
+	[";"] = { "<cmd>e " .. vim.fn.stdpath("config") .. "/lua/default.lua <cr>", "Dashboard" },
 	a = {
 		name = "+Applications",
 		["t"] = { "<cmd>terminal<cr>i", "Terminal buffer" },
