@@ -81,12 +81,12 @@ require("lazy").setup({
 			window = {
 				-- Either set the border but leave a transparent BG,
 				-- or set an opaque BG
-				border = "single",
+				--border = "single",
 
 				-- The BG color is invisible if we use a transparent BG;
 				-- in order to have a visible BG, the "WhichKeyFloat" highlight group should be set.
 				-- If `winblend == 100`, the HL group value doesn't matter.
-				--winblend = 100
+				winblend = 0
 			}
 		}
 	},

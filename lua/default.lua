@@ -7,7 +7,7 @@ vim.o.termguicolors = true
 
 --vim.cmd("colorscheme doom-one")
 require("catppuccin").setup({
-	transparent_background = true
+	transparent_background = false
 })
 if os.getenv("COLOR_SCHEME") == "2" then
 	vim.cmd("colorscheme catppuccin-latte")
