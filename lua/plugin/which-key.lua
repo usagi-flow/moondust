@@ -92,5 +92,5 @@ local mappings = {
 
 wk.register(mappings, opts)
 
--- Required only if we want to set an opaque background
---vim.api.nvim_set_hl(0, "WhichKeyFloat", {fg = "#603000", bg = "#FFC000"})
+-- In case we want to use an opaque background for wk only
+--vim.api.nvim_set_hl(0, "WhichKeyFloat", vim.api.nvim_get_hl(0, {name = "Normal"}))
