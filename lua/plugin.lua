@@ -124,5 +124,10 @@ require("lazy").setup({
 	{
 		"cyberkov/openhab-vim",
 		event = "BufReadPre *.things,*.items,*.rules,*.sitemap,*.persist"
+	},
+
+	{
+		"github/copilot.vim",
+		event = "VeryLazy"
 	}
 }, lazyopts)
