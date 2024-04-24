@@ -64,6 +64,13 @@ vim.o.list = true
 -- Currently set in the whichkey config
 --vim.o.timeoutlen = 400
 
+-- Automatically load external file changes (undo with 'u')
+vim.o.autoread = true
+
+-- Always display one line/two characters around the cursor
+vim.o.scrolloff = 1
+vim.o.sidescrolloff = 2
+
 vim.o.mouse = "a"
 
 -- Attempt to use the system clipboard when yanking

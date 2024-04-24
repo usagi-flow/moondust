@@ -40,6 +40,9 @@ require("lazy").setup({
 	--"romgrk/doom-one.vim"
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
+	-- Awesome but quite slow
+	--{ "tpope/vim-sensible", lazy = false },
+
 	{
 		"nvim-lualine/lualine.nvim",
 		lazy = false,
@@ -105,6 +108,12 @@ require("lazy").setup({
 			}
 		},
 		cmd = "Neotree"
+	},
+
+	{
+		"tpope/vim-fugitive",
+		tag = "v3.7",
+		event = "VeryLazy",
 	},
 
 	{
