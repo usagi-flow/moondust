@@ -47,7 +47,7 @@ vim.o.smartindent = true
 vim.o.expandtab = false
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.o.softtabstop = false
+vim.o.softtabstop = nil
 vim.g.markdown_recommended_style = 0
 
 -- Hybrid numbers (relative + active line number)
